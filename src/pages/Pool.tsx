@@ -7,8 +7,10 @@ import CardDataStats from '../components/CardDataStats';
 const Pool = () => {
     return (
         <>
+            {/* 两行 第一行奖池总金额，今日派发
+            第二行，今日返利 今日直推  */}
             <div className="grid grid-cols-1 gap-4 mb-10 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-                <CardDataStats title="总返利" total="$3.456K" rate="0.43%" levelUp>
+                <CardDataStats title="奖池总金额" total="$3.456K" rate="0.43%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
@@ -27,7 +29,7 @@ const Pool = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="剩余返利" total="$45,2K" rate="4.35%" levelUp>
+                <CardDataStats title="今日派发" total="$45,2K" rate="4.35%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="20"
@@ -73,7 +75,7 @@ const Pool = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="总流水" total="2.450" rate="2.59%" levelUp>
+                <CardDataStats title="今日直推" total="2.450" rate="2.59%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
