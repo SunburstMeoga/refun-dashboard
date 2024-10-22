@@ -18,6 +18,8 @@ import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
 import Personal from './pages/Personal';
 import Pool from './pages/Pool';
+import DirectPush from './pages/DirectPush';
+import PoolAward from './pages/PoolAward';
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
@@ -27,6 +29,7 @@ function App() {
   }, [pathname]);
 
   useEffect(() => {
+    console.log(pathname)
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
@@ -39,7 +42,7 @@ function App() {
           index
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="eCommerce Dashboard | ReFun" />
               <ECommerce />
             </>
           }
@@ -48,7 +51,7 @@ function App() {
           path="/calendar"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Calendar | ReFun" />
               <Calendar />
             </>
           }
@@ -57,7 +60,7 @@ function App() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Profile | ReFun" />
               <Profile />
             </>
           }
@@ -66,7 +69,7 @@ function App() {
           path="/forms/form-elements"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Elements | ReFun" />
               <FormElements />
             </>
           }
@@ -75,7 +78,7 @@ function App() {
           path="/forms/form-layout"
           element={
             <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Layout | ReFun" />
               <FormLayout />
             </>
           }
@@ -84,16 +87,16 @@ function App() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Tables | ReFun" />
               <Tables />
             </>
           }
         />
         <Route
-          path="/Pool"
+          path="/pools"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Tables | ReFun" />
               <Pool />
             </>
           }
@@ -102,8 +105,26 @@ function App() {
           path="/personal"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Tables | ReFun" />
               <Personal />
+            </>
+          }
+        />
+        <Route
+          path="/direct-push"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <DirectPush />
+            </>
+          }
+        />
+        <Route
+          path="/pool-award"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <PoolAward />
             </>
           }
         />
@@ -111,7 +132,7 @@ function App() {
           path="/settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Settings | ReFun" />
               <Settings />
             </>
           }
@@ -120,7 +141,7 @@ function App() {
           path="/chart"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Basic Chart | ReFun" />
               <Chart />
             </>
           }
@@ -129,7 +150,7 @@ function App() {
           path="/ui/alerts"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Alerts | ReFun" />
               <Alerts />
             </>
           }
@@ -138,7 +159,7 @@ function App() {
           path="/ui/buttons"
           element={
             <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Buttons | ReFun" />
               <Buttons />
             </>
           }
@@ -147,7 +168,7 @@ function App() {
           path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Signin | ReFun" />
               <SignIn />
             </>
           }
@@ -156,7 +177,7 @@ function App() {
           path="/auth/signup"
           element={
             <>
-              <PageTitle title="Signup | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Signup | ReFun" />
               <SignUp />
             </>
           }
