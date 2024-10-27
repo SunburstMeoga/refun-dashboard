@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     console.log(pathname)
     setTimeout(() => setLoading(false), 1000);
-    setTimeout(() => setIsLogin(true), 5000);
+    // setTimeout(() => setIsLogin(true), 5000);
   }, []);
 
   return loading ? (
@@ -47,146 +47,156 @@ function App() {
             <SignUp />
           </>
         }
-      /></Routes>) : (<DefaultLayout>
-        <Routes>
+      />
+      <Route
+        path="/auth/signin"
+        element={
+          <>
+            <PageTitle title="Signin | ReFun" />
+            <SignIn />
+          </>
+        }
+      />
+    </Routes>) : (<DefaultLayout>
+      <Routes>
 
-          <Route
-            path="/calendar"
-            element={
-              <>
-                <PageTitle title="Calendar | ReFun" />
-                <Calendar />
-              </>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <>
-                <PageTitle title="Profile | ReFun" />
-                <Profile />
-              </>
-            }
-          />
-          <Route
-            path="/forms/form-elements"
-            element={
-              <>
-                <PageTitle title="Form Elements | ReFun" />
-                <FormElements />
-              </>
-            }
-          />
-          <Route
-            path="/forms/form-layout"
-            element={
-              <>
-                <PageTitle title="Form Layout | ReFun" />
-                <FormLayout />
-              </>
-            }
-          />
-          <Route
-            path="/tables"
-            element={
-              <>
-                <PageTitle title="Tables | ReFun" />
-                <Tables />
-              </>
-            }
-          />
-          <Route
-            path="/pools"
-            element={
-              <>
-                <PageTitle title="Tables | ReFun" />
-                <Pool />
-              </>
-            }
-          />
-          <Route
-            path="/personal"
-            element={
-              <>
-                <PageTitle title="Tables | ReFun" />
-                <Personal />
-              </>
-            }
-          />
-          <Route
-            path="/direct-push"
-            element={
-              <>
-                <PageTitle title="Tables | ReFun" />
-                <DirectPush />
-              </>
-            }
-          />
-          <Route
-            path="/pool-award"
-            element={
-              <>
-                <PageTitle title="Tables | ReFun" />
-                <PoolAward />
-              </>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <>
-                <PageTitle title="Settings | ReFun" />
-                <Settings />
-              </>
-            }
-          />
-          <Route
-            path="/chart"
-            element={
-              <>
-                <PageTitle title="Basic Chart | ReFun" />
-                <Chart />
-              </>
-            }
-          />
-          <Route
-            path="/ui/alerts"
-            element={
-              <>
-                <PageTitle title="Alerts | ReFun" />
-                <Alerts />
-              </>
-            }
-          />
-          <Route
-            path="/ui/buttons"
-            element={
-              <>
-                <PageTitle title="Buttons | ReFun" />
-                <Buttons />
-              </>
-            }
-          />
-          <Route
-            path="/auth/signin"
-            element={
-              <>
-                <PageTitle title="Signin | ReFun" />
-                <SignIn />
-              </>
-            }
-          />
-          <Route
-            path="/auth/signup"
-            element={
-              <>
-                <PageTitle title="Signup | ReFun" />
-                <SignUp />
-              </>
-            }
-          />
-        </Routes>
-      </DefaultLayout>)
+        <Route
+          path="/calendar"
+          element={
+            <>
+              <PageTitle title="Calendar | ReFun" />
+              <Calendar />
+            </>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <PageTitle title="Profile | ReFun" />
+              <Profile />
+            </>
+          }
+        />
+        <Route
+          path="/forms/form-elements"
+          element={
+            <>
+              <PageTitle title="Form Elements | ReFun" />
+              <FormElements />
+            </>
+          }
+        />
+        <Route
+          path="/forms/form-layout"
+          element={
+            <>
+              <PageTitle title="Form Layout | ReFun" />
+              <FormLayout />
+            </>
+          }
+        />
+        <Route
+          path="/tables"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <Tables />
+            </>
+          }
+        />
+        <Route
+          path="/pools"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <Pool />
+            </>
+          }
+        />
+        <Route
+          path="/personal"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <Personal />
+            </>
+          }
+        />
+        <Route
+          path="/direct-push"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <DirectPush />
+            </>
+          }
+        />
+        <Route
+          path="/pool-award"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <PoolAward />
+            </>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <>
+              <PageTitle title="Settings | ReFun" />
+              <Settings />
+            </>
+          }
+        />
+        <Route
+          path="/chart"
+          element={
+            <>
+              <PageTitle title="Basic Chart | ReFun" />
+              <Chart />
+            </>
+          }
+        />
+        <Route
+          path="/ui/alerts"
+          element={
+            <>
+              <PageTitle title="Alerts | ReFun" />
+              <Alerts />
+            </>
+          }
+        />
+        <Route
+          path="/ui/buttons"
+          element={
+            <>
+              <PageTitle title="Buttons | ReFun" />
+              <Buttons />
+            </>
+          }
+        />
+        <Route
+          path="/auth/signin"
+          element={
+            <>
+              <PageTitle title="Signin | ReFun" />
+              <SignIn />
+            </>
+          }
+        />
+        <Route
+          path="/auth/signup"
+          element={
+            <>
+              <PageTitle title="Signup | ReFun" />
+              <SignUp />
+            </>
+          }
+        />
+      </Routes>
+    </DefaultLayout>)
 
   );
 }
