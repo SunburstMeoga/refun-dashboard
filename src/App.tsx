@@ -32,14 +32,14 @@ function App() {
   useEffect(() => {
     console.log(pathname)
     setTimeout(() => setLoading(false), 1000);
-    // setTimeout(() => setIsLogin(true), 5000);
+    setTimeout(() => setIsLogin(true), 1000);
   }, []);
 
   return loading ? (
     <Loader />
   ) : (
     !isLogin ? (<Routes>
-      <Route
+      {/* <Route
         path="/"
         element={
           <>
@@ -47,9 +47,9 @@ function App() {
             <SignUp />
           </>
         }
-      />
+      /> */}
       <Route
-        path="/auth/signin"
+        path="/"
         element={
           <>
             <PageTitle title="Signin | ReFun" />
