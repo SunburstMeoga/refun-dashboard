@@ -3,14 +3,32 @@ import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import TableThree from '../components/Tables/TableThree';
 // import TableTwo from '../components/Tables/TableTwo';
 import CardDataStats from '../components/CardDataStats';
-
+import { cashBackInfo, cashbacks } from '../service/api';
+import { useEffect, useState } from 'react';
 const Pool = () => {
+    let [cashbackInfoData, setCashbackInfoData] = useState({})
+    let [cashbacksListData, setCashbacksListData] = useState([])
+
+    const [packageData, setPackageData] = useState<[]>([]);
+    useEffect(() => {
+        getCashBackInfo()
+    }, [])
+    let getCashBackInfo = async () => {
+        let cashBackInfoRes = await cashBackInfo()
+        console.log('个人奖金池数据', cashBackInfoRes)
+        let cashbacksRes = await cashbacks({})
+        console.log('奖金池流水', cashbacksRes)
+        setCashbacksListData(cashbacksRes.data)
+        setPackageData(cashbacksRes.data.daily_cashbacks)
+
+        setCashbackInfoData(cashBackInfoRes.data)
+    }
     return (
         <>
             {/* 两行 第一行奖池总金额，今日派发
             第二行，今日返利 今日直推  */}
             <div className="grid grid-cols-1 gap-4 mb-10 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-                <CardDataStats title="奖池总金额" total="$3.456K" rate="0.43%" levelUp>
+                <CardDataStats title="奖池总金额" total={cashbackInfoData.order_cashback_remain} rate="0.43%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
@@ -29,7 +47,7 @@ const Pool = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="今日派发" total="$45,2K" rate="4.35%" levelUp>
+                <CardDataStats title="今日派发" total={cashbackInfoData.total_daily_cashback_paid} rate="4.35%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="20"
@@ -52,7 +70,7 @@ const Pool = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="今日返利" total="3.456" rate="0.95%" levelDown>
+                <CardDataStats title="今日返利" total={cashbackInfoData.daily_cashback_paid} rate="0.95%" levelDown>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
@@ -75,7 +93,7 @@ const Pool = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="今日直推" total="2.450" rate="2.59%" levelUp>
+                <CardDataStats title="今日直推" total={cashbackInfoData.instant_reward_paid} rate="2.59%" levelUp>
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
@@ -101,7 +119,7 @@ const Pool = () => {
             <div className="flex flex-col gap-10">
                 {/* <TableOne />
                 <TableTwo /> */}
-                <TableThree />
+                <TableThree packageData={packageData} />
             </div>
         </>
     );

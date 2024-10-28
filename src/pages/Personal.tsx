@@ -37,7 +37,7 @@ const Personal = () => {
             console.log('userInfoRes', userInfoRes.data)
             console.log('userInfoGraphRes', userInfoGraphRes)
             let seriesArr: any[] = [];
-            userInfoGraphRes.data.cashback_type.map((item: any, index: any) => {
+            userInfoGraphRes.cashback_type.map((item: any, index: any) => {
                 seriesArr[index].name = item
             })
 

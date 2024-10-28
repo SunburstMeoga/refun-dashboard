@@ -16,3 +16,11 @@ export const userInfo = () => {
 export const userInfoGraph = () => {
     return axiosClient.get('/user/info/graph');
 }
+//个人奖金池数据
+export const cashBackInfo = () => {
+    return axiosClient.get('/cashbacks/info');
+}
+//奖金池流水
+export const cashbacks = (data: any) => {
+    return axiosClient.get('/cashbacks', data)
+}

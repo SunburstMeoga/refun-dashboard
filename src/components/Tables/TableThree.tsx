@@ -1,33 +1,38 @@
 import { Package } from '../../types/package';
 
-const packageData: Package[] = [
-  {
-    name: 'Free package',
-    price: 0.0,
-    invoiceDate: `Jan 13,2023`,
-    status: 'Paid',
-  },
-  {
-    name: 'Standard Package',
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: 'Paid',
-  },
-  {
-    name: 'Business Package',
-    price: 99.0,
-    invoiceDate: `2023-10-02`,
-    status: 'Paid',
-  },
-  {
-    name: 'Standard Package',
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: 'Pending',
-  },
-];
+// const packageData: Package[] = [
+//   {
+//     name: 'Free package',
+//     price: 0.0,
+//     invoiceDate: `Jan 13,2023`,
+//     status: 'Paid',
+//   },
+//   {
+//     name: 'Standard Package',
+//     price: 59.0,
+//     invoiceDate: `Jan 13,2023`,
+//     status: 'Paid',
+//   },
+//   {
+//     name: 'Business Package',
+//     price: 99.0,
+//     invoiceDate: `2023-10-02`,
+//     status: 'Paid',
+//   },
+//   {
+//     name: 'Standard Package',
+//     price: 59.0,
+//     invoiceDate: `Jan 13,2023`,
+//     status: 'Pending',
+//   },
+// ];
 
-const TableThree = () => {
+
+interface TablePoolsProps {
+  packageData: [];  // 使用 props 接收 packageData
+}
+
+const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
@@ -71,7 +76,7 @@ const TableThree = () => {
                   <p className="text-sm">${packageItem.price}</p> */}
                   <p className="text-black dark:text-white">
                     {/* {packageItem.invoiceDate} */}
-                    23423...23423
+                    {packageItem.amount}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
