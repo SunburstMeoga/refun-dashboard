@@ -76,13 +76,13 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                   <p className="text-sm">${packageItem.price}</p> */}
                   <p className="text-black dark:text-white">
                     {/* {packageItem.invoiceDate} */}
-                    {packageItem.amount}
+                    {packageItem.order_cashback_id}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="text-black dark:text-white">
                     {/* {packageItem.invoiceDate} */}
-                    2023-10-02
+                    {packageItem.cashback_date}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -97,15 +97,15 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                     {packageItem.status}
                   </p> */}
                   <p className="text-black dark:text-white">
-                    20320390239
+                    {packageItem.user_id}
                   </p>
 
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <h5 className="font-medium text-black dark:text-white">
-                    $ 23.09
+                    {packageItem.amount}
                   </h5>
-                  <p className="text-sm"> ≈ 22.94 HAH</p>
+                  <p className="text-sm"> ≈ {(parseInt(packageItem.amount) * 7.2).toFixed(2)} HAH</p>
                   {/* <div className="flex items-center space-x-3.5">
                     <button className="hover:text-primary">
                       <svg
@@ -178,26 +178,21 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                   <p
                     className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${packageItem.status === 'Paid'
                       ? 'bg-success text-success'
-                      : packageItem.status === 'Unpaid'
+                      : packageItem.is_instant === 1
                         ? 'bg-danger text-danger'
                         : 'bg-warning text-warning'
                       }`}
                   >
-                    {packageItem.status}
+                    {packageItem.is_instant === 1 ? '已发放' : '待发放'}
                   </p>
 
 
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p
-                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${packageItem.status === 'Paid'
-                      ? 'bg-success text-success'
-                      : packageItem.status === 'Unpaid'
-                        ? 'bg-danger text-danger'
-                        : 'bg-warning text-warning'
-                      }`}
+                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium bg-success text-success`}
                   >
-                    {key % 2 == 0 ? '直推奖励' : '奖池奖励'}
+                    {packageItem.cashback_type_id === 1 ? '购物回赠' : (packageItem.cashback_type_id === 2 ? '上级推荐' : '直接推荐')}
                   </p>
 
                 </td>
@@ -213,7 +208,7 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                     {packageItem.status}
                   </p> */}
                   <p className="text-black dark:text-white">
-                    1USDT = 0.8HAH
+                    1USDT = 0.92HAH
                   </p>
 
                 </td>

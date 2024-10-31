@@ -16,9 +16,14 @@ const SignIn: React.FC = () => {
   }
   let handleLogin = async () => {
     try {
-      console.log(phoneNumber, password)
+      // console.log(phoneNumber, password)
       let result = await login({ mobile: phoneNumber, password: password })
       console.log(result)
+      if (result.data !== undefined) {
+        localStorage.setItem('token', result.data.access_token)
+        console.log(localStorage.getItem('token'))
+      }
+
 
     } catch (err) {
       console.log(err)

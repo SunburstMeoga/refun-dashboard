@@ -12,6 +12,20 @@ const Personal = () => {
     }, [])
     // let orderCashbackLimit = useState('') //个人回赠上限
     // let orderCashbackRemain = useState('') //剩余回赠
+    let [categories, setCategories] = useState([
+        'Sep',
+        'Oct',
+        '水电费',
+        'Dec',
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+    ])
     let [userInfoData, setUserinfoData] = useState({})
     let [userInfoGraphData, setUserInfoGraphData] = useState({})
     let [series, setSeries] = useState([
@@ -37,9 +51,33 @@ const Personal = () => {
             console.log('userInfoRes', userInfoRes.data)
             console.log('userInfoGraphRes', userInfoGraphRes)
             let seriesArr: any[] = [];
-            userInfoGraphRes.cashback_type.map((item: any, index: any) => {
-                seriesArr[index].name = item
+            let categoriesArr: any[] = [];
+            let dataArrOne: any[] = [];
+            let dataArrTwo: any[] = [];
+            let dataArrThree: any[] = [];
+
+
+            userInfoGraphRes.data['graph_data'].map((item: any, index: any) => {
+                categoriesArr.push(item.month)
+                dataArrOne.push(item['1'])
+                dataArrTwo.push(item['2'])
+                dataArrThree.push(item['3'])
             })
+            userInfoGraphRes.data['cashback_types'].map((item: any, index: any) => {
+                let obj: { name?: string } = {};
+                obj['name'] = item.name;
+
+                seriesArr.push(obj)
+            })
+            seriesArr[0]['data'] = dataArrOne
+            seriesArr[1]['data'] = dataArrTwo
+            seriesArr[2]['data'] = dataArrThree
+            // console.log(userInfoGraphData.cashback_types)
+            // console.log(seriesArr)
+            setSeries(seriesArr)
+            setCategories(categoriesArr)
+            console.log(series)
+            console.log(categories)
 
         } catch (err) {
             console.log(err)
@@ -99,7 +137,7 @@ const Personal = () => {
                 <TablePersonal />
             </div> */}
             <div className="mt-4 grid-cols-12 flex flex-col gap-10 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-                <ChartPersonal series={series} />
+                <ChartPersonal series={series} categories={categories} />
             </div>
         </>
     )

@@ -1,33 +1,35 @@
 import { Package } from '../../types/package';
 
-const packageData: Package[] = [
-    {
-        name: 'Free package',
-        price: 0.0,
-        invoiceDate: `Jan 13,2023`,
-        status: 'Paid',
-    },
-    {
-        name: 'Standard Package',
-        price: 59.0,
-        invoiceDate: `Jan 13,2023`,
-        status: 'Paid',
-    },
-    {
-        name: 'Business Package',
-        price: 99.0,
-        invoiceDate: `2023-10-02`,
-        status: 'Paid',
-    },
-    {
-        name: 'Standard Package',
-        price: 59.0,
-        invoiceDate: `Jan 13,2023`,
-        status: 'Pending',
-    },
-];
-
-const TableDirectPush = () => {
+// const packageData: Package[] = [
+//     {
+//         name: 'Free package',
+//         price: 0.0,
+//         invoiceDate: `Jan 13,2023`,
+//         status: 'Paid',
+//     },
+//     {
+//         name: 'Standard Package',
+//         price: 59.0,
+//         invoiceDate: `Jan 13,2023`,
+//         status: 'Paid',
+//     },
+//     {
+//         name: 'Business Package',
+//         price: 99.0,
+//         invoiceDate: `2023-10-02`,
+//         status: 'Paid',
+//     },
+//     {
+//         name: 'Standard Package',
+//         price: 59.0,
+//         invoiceDate: `Jan 13,2023`,
+//         status: 'Pending',
+//     },
+// ];
+interface TableDirectPushProps {
+    packageData: [];  // 使用 props 接收 packageData
+}
+const TableDirectPush: React.FC<TableDirectPushProps> = ({ packageData }) => {
     return (
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
             <div className="max-w-full overflow-x-auto">
@@ -59,43 +61,43 @@ const TableDirectPush = () => {
                             <tr key={key}>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark ">
                                     <p className="text-black dark:text-white">
-                                        23423...23423
+                                        {packageItem.user_id}
                                     </p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        ￥ {packageItem.amount}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.amount) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.amount) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        ￥ {packageItem.amount}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.amount) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.amount) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        ￥ {packageItem.amount}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.amount) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.amount) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        ￥ {packageItem.amount}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.amount) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.amount) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        ￥ {packageItem.amount}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.amount) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.amount) / 7.2).toFixed(2)} USDT</p>
                                 </td>
 
 

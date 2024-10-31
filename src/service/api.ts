@@ -24,3 +24,12 @@ export const cashBackInfo = () => {
 export const cashbacks = (data: any) => {
     return axiosClient.get('/cashbacks', data)
 }
+//直推奖励
+export const directReward = (data: any) => {
+    return axiosClient.get('/rewards/direct-reward', data)
+}
+
+//奖池奖励
+export const poolAward = (data: any) => {
+    return axiosClient.get('/rewards/invite-reward', data)
+}

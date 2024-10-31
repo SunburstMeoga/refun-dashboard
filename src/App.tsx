@@ -32,22 +32,32 @@ function App() {
   useEffect(() => {
     console.log(pathname)
     setTimeout(() => setLoading(false), 1000);
-    setTimeout(() => setIsLogin(true), 1000);
+    // setTimeout(() => setIsLogin(true), 5000);
+  }, []);
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  useEffect(() => {
+    const handleTokenChange = () => {
+      const newToken = localStorage.getItem('token');
+      console.log('Token changed:', newToken);
+      setToken(newToken);
+      if (newToken !== null) {
+        setIsLogin(true)
+      }
+    };
+
+    // 页面加载时手动检查一次
+    handleTokenChange();
+
+    // 定期检查 token 更新
+    const interval = setInterval(handleTokenChange, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return loading ? (
     <Loader />
   ) : (
     !isLogin ? (<Routes>
-      {/* <Route
-        path="/"
-        element={
-          <>
-            <PageTitle title="Signup | ReFun" />
-            <SignUp />
-          </>
-        }
-      /> */}
       <Route
         path="/"
         element={
@@ -59,49 +69,12 @@ function App() {
       />
     </Routes>) : (<DefaultLayout>
       <Routes>
-
         <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar | ReFun" />
-              <Calendar />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile | ReFun" />
-              <Profile />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements | ReFun" />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout | ReFun" />
-              <FormLayout />
-            </>
-          }
-        />
-        <Route
-          path="/tables"
+          path="/"
           element={
             <>
               <PageTitle title="Tables | ReFun" />
-              <Tables />
+              <Personal />
             </>
           }
         />
@@ -114,15 +87,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/personal"
-          element={
-            <>
-              <PageTitle title="Tables | ReFun" />
-              <Personal />
-            </>
-          }
-        />
+
         <Route
           path="/direct-push"
           element={
@@ -141,60 +106,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/settings"
-          element={
-            <>
-              <PageTitle title="Settings | ReFun" />
-              <Settings />
-            </>
-          }
-        />
-        <Route
-          path="/chart"
-          element={
-            <>
-              <PageTitle title="Basic Chart | ReFun" />
-              <Chart />
-            </>
-          }
-        />
-        <Route
-          path="/ui/alerts"
-          element={
-            <>
-              <PageTitle title="Alerts | ReFun" />
-              <Alerts />
-            </>
-          }
-        />
-        <Route
-          path="/ui/buttons"
-          element={
-            <>
-              <PageTitle title="Buttons | ReFun" />
-              <Buttons />
-            </>
-          }
-        />
-        <Route
-          path="/auth/signin"
-          element={
-            <>
-              <PageTitle title="Signin | ReFun" />
-              <SignIn />
-            </>
-          }
-        />
-        <Route
-          path="/auth/signup"
-          element={
-            <>
-              <PageTitle title="Signup | ReFun" />
-              <SignUp />
-            </>
-          }
-        />
+
       </Routes>
     </DefaultLayout>)
 

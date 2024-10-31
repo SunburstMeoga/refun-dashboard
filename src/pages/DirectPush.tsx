@@ -4,8 +4,21 @@ import userSix from '../images/user/user-06.png';
 // import { Link } from 'react-router-dom';
 import CardDataStats from '../components/CardDataStats';
 import TableDirectPush from '../components/Tables/TableDirectPush';
+import { directReward } from '../service/api';
+import { useEffect, useState } from 'react';
+
+
 
 const DirectPush = () => {
+    let [packageData, setPackageData] = useState<[]>([]);
+    useEffect(() => {
+        getDirectRewardInfo()
+    }, [])
+    let getDirectRewardInfo = async () => {
+        let result = await directReward({ perPage: 100000 })
+        setPackageData(result.data.daily_cashbacks)
+        console.log('直推奖励数据', result)
+    }
     return (
         <>
             <Breadcrumb pageName="直推奖励 " />
@@ -406,7 +419,7 @@ const DirectPush = () => {
             <div className="flex flex-col gap-10">
                 {/* <TableOne />
                 <TableTwo /> */}
-                <TableDirectPush />
+                <TableDirectPush packageData={packageData} />
             </div>
         </>
     );

@@ -4,42 +4,45 @@ import ProductTwo from '../../images/product/product-02.png';
 import ProductThree from '../../images/product/product-03.png';
 import ProductFour from '../../images/product/product-04.png';
 
-const productData: Product[] = [
-    {
-        image: ProductOne,
-        name: 'Apple Watch Series 7',
-        category: 'Electronics',
-        price: 296,
-        sold: 22,
-        profit: 45,
-    },
-    {
-        image: ProductTwo,
-        name: 'Macbook Pro M1',
-        category: 'Electronics',
-        price: 546,
-        sold: 12,
-        profit: 125,
-    },
-    {
-        image: ProductThree,
-        name: 'Dell Inspiron 15',
-        category: 'Electronics',
-        price: 443,
-        sold: 64,
-        profit: 247,
-    },
-    {
-        image: ProductFour,
-        name: 'HP Probook 450',
-        category: 'Electronics',
-        price: 499,
-        sold: 72,
-        profit: 103,
-    },
-];
+// const productData: Product[] = [
+//     {
+//         image: ProductOne,
+//         name: 'Apple Watch Series 7',
+//         category: 'Electronics',
+//         price: 296,
+//         sold: 22,
+//         profit: 45,
+//     },
+//     {
+//         image: ProductTwo,
+//         name: 'Macbook Pro M1',
+//         category: 'Electronics',
+//         price: 546,
+//         sold: 12,
+//         profit: 125,
+//     },
+//     {
+//         image: ProductThree,
+//         name: 'Dell Inspiron 15',
+//         category: 'Electronics',
+//         price: 443,
+//         sold: 64,
+//         profit: 247,
+//     },
+//     {
+//         image: ProductFour,
+//         name: 'HP Probook 450',
+//         category: 'Electronics',
+//         price: 499,
+//         sold: 72,
+//         profit: 103,
+//     },
+// ];
+interface TableDirectPushProps {
+    packageData: [];  // 使用 props 接收 packageData
+}
 
-const TablePoolAward = () => {
+const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
     return (
         // <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         //     <div className="py-6 px-4 md:px-6 xl:px-7.5">
@@ -153,70 +156,71 @@ const TablePoolAward = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {productData.map((packageItem, key) => (
+                        {packageData.map((packageItem, key) => (
                             <tr key={key}>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark ">
                                     <div className="col-span-3 flex items-center">
                                         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                                             <div className="h-12.5 w-15 rounded-md">
-                                                <img src={packageItem.image} alt="Product" />
+                                                <img src={packageItem.referral_reward.order_good.image} alt="Product" />
                                             </div>
                                             <p className="text-sm text-black dark:text-white">
-                                                {packageItem.name}
+                                                {packageItem.referral_reward.order_good.goods_name}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        {packageItem.referral_reward.order_good.total_price}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td>
 
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <p className="text-black dark:text-white">
-                                        2023-01-12
+                                        {packageItem.referral_reward.order_good.create_time}
                                     </p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <p className="text-black dark:text-white">
-                                        242342344234
+                                        {packageItem.referral_reward.order_good.inviter_id}
                                     </p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <p className="text-black dark:text-white">
-                                        24233...23234
+                                        {packageItem.referral_reward.order.order_sn}
+
                                     </p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        {packageItem.referral_reward.order_good.total_price}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        {packageItem.referral_reward.order_good.total_price}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        {packageItem.referral_reward.order_good.total_price}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
-                                        ￥ 23.09
+                                        {packageItem.referral_reward.order_good.total_price}
                                     </h5>
-                                    <p className="text-sm"> ≈ 22.94 HAH</p>
-                                    <p className="text-sm"> ≈ 21.62 USDT</p>
+                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
+                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td>
                             </tr>
                         ))}
