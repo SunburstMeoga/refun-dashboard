@@ -349,7 +349,7 @@ const DirectPush = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="今日派发(USDT)" total="$45,2K">
+                <CardDataStats title="今日派发" total="234234.23">
                     <svg
                         className="fill-primary dark:fill-white"
                         width="20"
@@ -372,7 +372,7 @@ const DirectPush = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="总派奖(USDT)" total="3.456" >
+                <CardDataStats title="总派奖" total="3.456" >
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
@@ -395,7 +395,7 @@ const DirectPush = () => {
                         />
                     </svg>
                 </CardDataStats>
-                <CardDataStats title="待派奖(USDT)" total="2.450" >
+                <CardDataStats title="待派奖" total="2.450" >
                     <svg
                         className="fill-primary dark:fill-white"
                         width="22"
