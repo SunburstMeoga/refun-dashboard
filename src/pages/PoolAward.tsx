@@ -15,7 +15,7 @@ const PoolAward = () => {
     }
     return (
         <>
-            <Breadcrumb pageName="奖池奖励 " />
+            <Breadcrumb pageName="购物奖励商品列表" />
 
 
             <div className="flex flex-col gap-10">
