@@ -45,9 +45,9 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
               <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                 发放时间
               </th>
-              <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
+              {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                 发放账户
-              </th>
+              </th> */}
 
               <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                 发放金额
@@ -55,9 +55,9 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
               <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                 是否已发放
               </th>
-              <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
+              {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                 流水类型
-              </th>
+              </th> */}
               <th className="min-w-[170px] py-4 px-4 font-medium text-black dark:text-white">
                 发放当日币价
               </th>
@@ -76,7 +76,7 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                   <p className="text-sm">${packageItem.price}</p> */}
                   <p className="text-black dark:text-white">
                     {/* {packageItem.invoiceDate} */}
-                    {packageItem.order_cashback_id}
+                    {packageItem?.referral_reward?.order?.order_sn}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -85,8 +85,8 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                     {packageItem.cashback_date}
                   </p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  {/* <p
+                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                  <p
                     className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${packageItem.status === 'Paid'
                       ? 'bg-success text-success'
                       : packageItem.status === 'Unpaid'
@@ -95,12 +95,12 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
                       }`}
                   >
                     {packageItem.status}
-                  </p> */}
+                  </p>
                   <p className="text-black dark:text-white">
                     {packageItem.user_id}
                   </p>
 
-                </td>
+                </td> */}
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <h5 className="font-medium text-black dark:text-white">
                     {packageItem.amount}
@@ -188,14 +188,14 @@ const TableThree: React.FC<TablePoolsProps> = ({ packageData }) => {
 
 
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p
                     className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium bg-success text-success`}
                   >
                     {packageItem.cashback_type_id === 1 ? '购物回赠' : (packageItem.cashback_type_id === 2 ? '上级推荐' : '直接推荐')}
                   </p>
 
-                </td>
+                </td> */}
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   {/* <p
                     className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${packageItem.status === 'Paid'

@@ -118,43 +118,28 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
         // </div>
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
             <div className="max-w-full overflow-x-auto">
-                <div className="py-6 px-4 md:px-6 xl:px-7.5">
+                {/* <div className="py-6 px-4 md:px-6 xl:px-7.5">
                     <h4 className="text-xl font-semibold text-black dark:text-white">
                         奖池奖励商品列表
                     </h4>
-                </div>
+                </div> */}
                 <table className="w-full table-auto">
                     <thead>
                         <tr className="bg-gray-2 text-left dark:bg-meta-4">
                             <th className="min-w-[240px] py-4 px-4 font-medium text-black dark:text-white ">
-                                商品名称
+                                商品简介
                             </th>
                             <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                商品金额
+                                派发日期
                             </th>
                             <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                订单完成时间
-                            </th>
-                            {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                购买账户
-                            </th> */}
-                            <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                订单编号
-                            </th>
-                            {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                总奖励
-                            </th> */}
-                            {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                剩余奖励
-                            </th> */}
-                            <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                已派发奖励
+                                奖励类型
                             </th>
                             <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                奖金金额
+                                奖励金额
                             </th>
                             <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                账户返利奖金
+                                我的奖金
                             </th>
                         </tr>
                     </thead>
@@ -163,61 +148,29 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
                             <tr key={key}>
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark ">
                                     <div className="col-span-3 flex items-center">
-                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                                        <a className="flex flex-col gap-4 sm:flex-row sm:items-center cursor-pointer  hover:text-indigo">
                                             <div className="h-12.5 w-15 rounded-md">
                                                 <img src={packageItem.referral_reward.order_good.image} alt="Product" />
                                             </div>
-                                            <p className="text-sm text-black dark:text-white">
+                                            <p className="text-sm text-black dark:text-white underline">
                                                 {packageItem.referral_reward.order_good.goods_name}
                                             </p>
-                                        </div>
+                                        </a>
                                     </div>
                                 </td>
-                                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td>
-
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <p className="text-black dark:text-white">
                                         {packageItem.referral_reward.order_good.create_time}
                                     </p>
                                 </td>
-                                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <p className="text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.inviter_id}
-                                    </p>
-                                </td> */}
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <p className="text-black dark:text-white">
-                                        {packageItem.referral_reward.order.order_sn}
+                                        {/* {packageItem.referral_reward.order_good.create_time} */}
+                                        {key % 2 === 0 ? '1%：直推奖励' : '4%：商品奖励'}
+                                    </p>
+                                </td>
 
-                                    </p>
-                                </td>
-                                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td> */}
-                                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td> */}
-                                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td>
+
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
                                         {packageItem.referral_reward.order_good.total_price}
@@ -233,13 +186,7 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
                                     {/* <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p> */}
                                     <p className="text-sm"> 剩余奖金余额 {(packageItem.referral_reward.order_good.total_price - 1).toFixed(2)}</p>
                                 </td>
-                                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td> */}
+
                             </tr>
                         ))}
                     </tbody>

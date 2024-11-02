@@ -20,6 +20,8 @@ import Personal from './pages/Personal';
 import Pool from './pages/Pool';
 import DirectPush from './pages/DirectPush';
 import PoolAward from './pages/PoolAward';
+import BindedUser from './pages/BindedUser'
+import AccRewards from './pages/AccRewards'
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -107,6 +109,24 @@ function App() {
           }
         />
 
+        <Route
+          path="/binded-user"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <BindedUser />
+            </>
+          }
+        />
+        <Route
+          path="/acc-rewards"
+          element={
+            <>
+              <PageTitle title="Tables | ReFun" />
+              <AccRewards />
+            </>
+          }
+        />
       </Routes>
     </DefaultLayout>)
 

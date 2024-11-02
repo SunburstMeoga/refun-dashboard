@@ -144,18 +144,15 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
                             {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                                 总奖励
                             </th> */}
-                            {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
+                            <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                                 剩余奖励
-                            </th> */}
+                            </th>
                             <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
                                 已派发奖励
                             </th>
-                            <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                奖金金额
-                            </th>
-                            <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
-                                账户返利奖金
-                            </th>
+                            {/* <th className="min-w-[140px] py-4 px-4 font-medium text-black dark:text-white">
+                                未派发奖励
+                            </th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -204,13 +201,6 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
                                     <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
                                     <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
                                 </td> */}
-                                {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
-                                    <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td> */}
                                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
                                         {packageItem.referral_reward.order_good.total_price}
@@ -224,14 +214,6 @@ const TablePoolAward: React.FC<TableDirectPushProps> = ({ packageData }) => {
                                     </h5>
                                     <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p>
                                     <p className="text-sm"> ≈ {(parseInt(packageItem.referral_reward.order_good.total_price) / 7.2).toFixed(2)} USDT</p>
-                                </td>
-                                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                    <h5 className="font-medium text-green-5">
-                                        + {packageItem.referral_reward.order_good.total_price}
-                                    </h5>
-                                    {/* <p className="text-sm" >剩余奖金余额</p> */}
-                                    {/* <p className="text-sm"> ≈ {((parseInt(packageItem.referral_reward.order_good.total_price) / 7.2) / 1.2).toFixed(2)} HAH</p> */}
-                                    <p className="text-sm"> 剩余奖金余额 {(packageItem.referral_reward.order_good.total_price - 1).toFixed(2)}</p>
                                 </td>
                                 {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <h5 className="font-medium text-black dark:text-white">
